@@ -361,83 +361,83 @@ class patient_feedback(db.Model):
 # 				return redirect(url_for('doc_contact'))
 # 		return render_template('doctor/doc_contact.html')
 		
-# class make_appointment(db.Model):
-# 	id = db.Column('m_app_id', db.Integer, primary_key = True)
-# 	name = db.Column(db.String(100))
-# 	email = db.Column(db.String(100))
-# 	dname = db.Column(db.String(100))
-# 	subject = db.Column(db.String(100))
-# 	message = db.Column(db.String(10000))
-# 	def __init__(self,name,email,dname,subject,message):
-# 		self.name = name
-# 		self.email = email
-# 		self.dname= dname
-# 		self.subject = subject
-# 		self.message = message
-# 	@app.route('/m_app', methods = ['GET', 'POST'])
-# 	def new8():
-# 		if request.method == 'POST':
-# 			if not request.form['name'] or not request.form['email'] or not request.form['dname'] or not request.form['subject'] or not request.form['message']:
-# 				flash('Please enter all the fields', 'error')
-# 			else:
-# 				m_app = make_appointment(request.form['name'], request.form['email'], request.form['dname'], request.form['subject'], request.form['message'])			 
-# 				db.session.add(m_app)
-# 				db.session.commit()
-#  				flash('Record was successfully added')
-# 				return redirect(url_for('home'))
-# 		return render_template('user/make_appointment.html')
-# class make_appointment2(db.Model):
-# 	id = db.Column('m_app2_id', db.Integer, primary_key = True)
-# 	name = db.Column(db.String(100))
-# 	email = db.Column(db.String(100))
-# 	dname = db.Column(db.String(100))
-# 	subject = db.Column(db.String(100))
-# 	message = db.Column(db.String(10000))
-# 	def __init__(self,name,email,dname,subject,message):
-# 		self.name = name
-# 		self.email = email
-# 		self.dname = dname
-# 		self.subject = subject
-# 		self.message = message
-# 	@app.route('/dm_app', methods = ['GET', 'POST'])
-# 	def new10():
-# 		if request.method == 'POST':
-# 			if not request.form['name'] or not request.form['email'] or not request.form['dname'] or not request.form['subject'] or not request.form['message']:
-# 				flash('Please enter all the fields', 'error')
-# 			else:
-# 				m_app2 = make_appointment2(request.form['name'], request.form['email'], request.form['dname'], request.form['subject'], request.form['message'])			 
-# 				db.session.add(m_app2)
-# 				db.session.commit()
-#  				flash('Record was successfully added')
-# 				return redirect(url_for('home'))
-# 		return render_template('user/dmake_appointment.html')
-# class fix_appoinment(db.Model):
-# 	id = db.Column('fix_app_id', db.Integer, primary_key = True)
-# 	doc_name = db.Column(db.String(100))
-# 	patient_name = db.Column(db.String(100))
-# 	address = db.Column(db.String(100))
-# 	dob1 = db.Column(db.String(100))
-# 	dob2 = db.Column(db.String(100))
-# 	dob3 = db.Column(db.String(100))
-# 	def __init__(self,doc_name,patient_name,address,dob1,dob2,dob3):
-# 		self.doc_name = doc_name
-# 		self.patient_name = patient_name
-# 		self.address = address
-# 		self.dob1 = dob1
-# 		self.dob2 = dob2
-# 		self.dob3 = dob3
-	# @app.route('/fix_app', methods = ['GET', 'POST'])
-	# def new9():
-	# 	if request.method == 'POST':
-	# 		if not request.form['doc_name'] or not request.form['patient_name'] or not request.form['address'] or not request.form['dob1'] or not request.form['dob2'] or not request.form['dob3']:
-	# 			flash('Please enter all the fields', 'error')
-	# 		else:
-	# 			fix_app = fix_appoinment(request.form['doc_name'] ,request.form['patient_name'] ,request.form['address'] ,request.form['dob1'], request.form['dob2'], request.form['dob3'])			 
-	# 			db.session.add(fix_app)
-	# 			db.session.commit()
- 	# 			flash('Record was successfully added')
-	# 			return redirect(url_for('home1'))
-	# 	return render_template('doctor/fix_appointment.html')
+class make_appointment(db.Model):
+	id = db.Column('m_app_id', db.Integer, primary_key = True)
+	name = db.Column(db.String(100))
+	email = db.Column(db.String(100))
+	dname = db.Column(db.String(100))
+	subject = db.Column(db.String(100))
+	message = db.Column(db.String(10000))
+	def __init__(self,name,email,dname,subject,message):
+		self.name = name
+		self.email = email
+		self.dname= dname
+		self.subject = subject
+		self.message = message
+	@app.route('/m_app', methods = ['GET', 'POST'])
+	def new8():
+		if request.method == 'POST':
+			if not request.form['name'] or not request.form['email'] or not request.form['dname'] or not request.form['subject'] or not request.form['message']:
+				flash('Please enter all the fields', 'error')
+			else:
+				m_app = make_appointment(request.form['name'], request.form['email'], request.form['dname'], request.form['subject'], request.form['message'])			 
+				db.session.add(m_app)
+				db.session.commit()
+				flash('Record was successfully added')
+				return redirect(url_for('home'))
+		return render_template('user/make_appointment.html')
+class make_appointment2(db.Model):
+	id = db.Column('m_app2_id', db.Integer, primary_key = True)
+	name = db.Column(db.String(100))
+	email = db.Column(db.String(100))
+	dname = db.Column(db.String(100))
+	subject = db.Column(db.String(100))
+	message = db.Column(db.String(10000))
+	def __init__(self,name,email,dname,subject,message):
+		self.name = name
+		self.email = email
+		self.dname = dname
+		self.subject = subject
+		self.message = message
+	@app.route('/dm_app', methods = ['GET', 'POST'])
+	def new10():
+		if request.method == 'POST':
+			if not request.form['name'] or not request.form['email'] or not request.form['dname'] or not request.form['subject'] or not request.form['message']:
+				flash('Please enter all the fields', 'error')
+			else:
+				m_app2 = make_appointment2(request.form['name'], request.form['email'], request.form['dname'], request.form['subject'], request.form['message'])			 
+				db.session.add(m_app2)
+				db.session.commit()
+				flash('Record was successfully added')
+				return redirect(url_for('home'))
+		return render_template('user/dmake_appointment.html')
+class fix_appoinment(db.Model):
+	id = db.Column('fix_app_id', db.Integer, primary_key = True)
+	doc_name = db.Column(db.String(100))
+	patient_name = db.Column(db.String(100))
+	address = db.Column(db.String(100))
+	dob1 = db.Column(db.String(100))
+	dob2 = db.Column(db.String(100))
+	dob3 = db.Column(db.String(100))
+	def __init__(self,doc_name,patient_name,address,dob1,dob2,dob3):
+		self.doc_name = doc_name
+		self.patient_name = patient_name
+		self.address = address
+		self.dob1 = dob1
+		self.dob2 = dob2
+		self.dob3 = dob3
+	@app.route('/fix_app', methods = ['GET', 'POST'])
+	def new9():
+		if request.method == 'POST':
+			if not request.form['doc_name'] or not request.form['patient_name'] or not request.form['address'] or not request.form['dob1'] or not request.form['dob2'] or not request.form['dob3']:
+				flash('Please enter all the fields', 'error')
+			else:
+				fix_app = fix_appoinment(request.form['doc_name'] ,request.form['patient_name'] ,request.form['address'] ,request.form['dob1'], request.form['dob2'], request.form['dob3'])			 
+				db.session.add(fix_app)
+				db.session.commit()
+				flash('Record was successfully added')
+				return redirect(url_for('home1'))
+		return render_template('doctor/fix_appointment.html')
 
 if __name__ == '__main__':
 	db.create_all()

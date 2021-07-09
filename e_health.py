@@ -214,7 +214,7 @@ def search_view():
 		return render_template('user/doc_search.html')
 	search = request.form['search']
 	district = request.form['district']
- 	return redirect(url_for('search_details',name=search,district=district))
+	return redirect(url_for('search_details',name=search,district=district))
 
 @app.route('/disease_prediction_view', methods=['POST','GET'])
 def prediction_view():
@@ -287,7 +287,7 @@ class patient_feedback(db.Model):
 				feed = patient_feedback(request.form['name'], request.form['email'] , request.form['feedback'])			 
 				db.session.add(feed)
 				db.session.commit()
- 				flash('Record was successfully added')
+				flash('Record was successfully added')
 				return redirect(url_for('patient_feedback'))
 		return render_template('user/patient_feedback.html')
 
@@ -311,7 +311,7 @@ class patient_contact(db.Model):
 				contact1 = patient_contact(request.form['name'], request.form['email'], request.form['subject'], request.form['message'])			 
 				db.session.add(contact1)
 				db.session.commit()
- 				flash('Record was successfully added')
+				flash('Record was successfully added')
 				return redirect(url_for('patient_contact'))
 		return render_template('user/patient_contact.html')
 
@@ -333,7 +333,7 @@ class doc_feedback(db.Model):
 				feed = doc_feedback(request.form['name'], request.form['email'] , request.form['feedback'])			 
 				db.session.add(feed)
 				db.session.commit()
- 				flash('Record was successfully added')
+				flash('Record was successfully added')
 				return redirect(url_for('doc_feedback'))
 		return render_template('user/doc_feedback.html')
 
@@ -357,7 +357,7 @@ class doc_contact(db.Model):
 				contact1 = doc_contact(request.form['name'], request.form['email'], request.form['subject'], request.form['message'])			 
 				db.session.add(contact1)
 				db.session.commit()
- 				flash('Record was successfully added')
+				flash('Record was successfully added')
 				return redirect(url_for('doc_contact'))
 		return render_template('doctor/doc_contact.html')
 		
@@ -383,7 +383,7 @@ class make_appointment(db.Model):
 				m_app = make_appointment(request.form['name'], request.form['email'], request.form['dname'], request.form['subject'], request.form['message'])			 
 				db.session.add(m_app)
 				db.session.commit()
- 				flash('Record was successfully added')
+				flash('Record was successfully added')
 				return redirect(url_for('home'))
 		return render_template('user/make_appointment.html')
 class make_appointment2(db.Model):
@@ -408,7 +408,7 @@ class make_appointment2(db.Model):
 				m_app2 = make_appointment2(request.form['name'], request.form['email'], request.form['dname'], request.form['subject'], request.form['message'])			 
 				db.session.add(m_app2)
 				db.session.commit()
- 				flash('Record was successfully added')
+				flash('Record was successfully added')
 				return redirect(url_for('home'))
 		return render_template('user/dmake_appointment.html')
 class fix_appoinment(db.Model):
@@ -435,7 +435,7 @@ class fix_appoinment(db.Model):
 				fix_app = fix_appoinment(request.form['doc_name'] ,request.form['patient_name'] ,request.form['address'] ,request.form['dob1'], request.form['dob2'], request.form['dob3'])			 
 				db.session.add(fix_app)
 				db.session.commit()
- 				flash('Record was successfully added')
+				flash('Record was successfully added')
 				return redirect(url_for('home1'))
 		return render_template('doctor/fix_appointment.html')
 
