@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="D:\SmartHealthConsultancyProject\project\appname\venv"
+VIRTUAL_ENV="D:\Online health consultancy\project\consultDoc\venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
