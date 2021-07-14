@@ -1,273 +1,340 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+
+<!-- <!DOCTYPE html>
+<html lang="en"> -->
 
 <head>
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
-	<title>Smart Health Consulting</title>
+	
+	{% block head %}
+	<title>consultDoc.com</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='../static/css/index.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='../static/css/index2.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='../static/css/fontawesome/css/all.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='../static/css/animate.css') }}">
+	{% endblock head %}
 
-	<link href="{{ url_for('static', filename='css/bootstrap.css')}}" rel="stylesheet">
-
-	<link href="{{ url_for('static', filename='css/main.css')}}" rel="stylesheet">
-
-	<link href="{{ url_for('static', filename='images/favicon.png')}}" rel="stylesheet">
-
-	<link href="{{ url_for('static', filename='http://fonts.googleapis.com/css?family=Open+Sans:300,600')}}"
-		rel="stylesheet" type='text/css'>
-
-	<script src="{{url_for('static', filename='js/pace.js')}}"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 </head>
 
 <body>
-	<div class="preloader"></div>
 
-	<! -- ******************** MASTHEAD SECTION ******************** -->
-		<main id="top" class="masthead" role="main">
-			<div class="container">
-				<div class="logo">
-					<a href="#">
-						<img src="static/images/welcome.png" alt="logo"></a>
-				</div>
-				<h2>Lets Get <strong>Started</strong> <br></h2>
-
-				<div class="row">
-					<div class="col-md-6 col-sm-12 col-md-offset-3 subscribe">
+	<!-- Start Nav-bar coding -->
+	<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="/">consultDoc.com</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+				data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="/">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="/dregister">Doctor Sign Up</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="/register">Patient Sign Up</a>
+					</li>
+					<li class="nav-item">
 						<form action="/login">
-							<div class="form-group">
-								<div class="col-md-7 col-sm-6 col-sm-offset-1 col-md-offset-0">
-								</div>
-								<div class="col-md-5 col-sm-4">
-									<button type="submit" class="btn btn-success btn-lg">Login</button>
-								</div>
-							</div>
-
-
-					</div>
-					<! --/container -->
-		</main>
-		<! --/main -->
-
-
-			<! -- ******************** FEATURES SECTION ******************** -->
-				<!--	<div class="container" id="explore">
- 
-		<div class="section-title">
-			<h2>Showcase your product with style.</h2>
-			<h4>This theme is ideal for your Web Project or your App.</h4>
-		</div>
-
-		<section class="row heroimg breath">
-			<div class="col-md-12 text-center"> 
-				<img src="images/flat-mockup-template.png" alt="flat-mockup-template">
+							<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+						</form>
+					</li>
+				</ul>
 			</div>
-		</section><! --/section 
- 
-		<div class="section-title">
-			<h2>More information about your product.</h2>
-			<h4>Always detail some important features.</h4>
 		</div>
-		
-		<section class="row features">
-			<div class="col-sm-6 col-md-3">
-				<div class="thumbnail"> 
-					<img src="images/service_01.png" alt="analytics-icon">
-					<div class="caption">
-						<h3>Important Feature 1</h3>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-					</div>
-				</div><! --/thumbnail 
-			</div><! --/col-sm-6
- 
-			<div class="col-sm-6 col-md-3">
-				<div class="thumbnail"> 
-					<img src="images/service_02.png" alt="analytics-icon">
-					<div class="caption">
-						<h3>Important Feature 2</h3>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-					</div>
-				</div><! --/thumbnail 
-			</div><! --/col-sm-6
-			<div class="col-sm-6 col-md-3">
-				<div class="thumbnail"> 
-					<img src="images/service_03.png" alt="analytics-icon">
-					<div class="caption">
-						<h3>Important Feature 3</h3>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-					</div>
-				</div><! --/thumbnail 
-			</div><! --/col-sm-6
- 
-			<div class="col-sm-6 col-md-3">
-				<div class="thumbnail"> 
-					<img src="images/service_04.png" alt="analytics-icon">
-					<div class="caption">
-						<h3>Important Feature 4</h3>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-					</div>
-				</div><! --/thumbnail
-			</div><! --/col-sm-6
-		</section><! --/section 
- 
+	</nav> -->
+	<!-- End Nav-bar coding -->
 
-	    <! -- ******************** CLIENTS SECTION ********************  
-		<div class="section-title">
-			<h2>Some of our clients</h2>
-			<h4>We work with different kind of brands</h4>
-		</div>
-	
-		<section class="row clientlogo breath">
-			<div class="col-md-12 text-center"> 
-				<img src="images/client-logos.png" alt="client-logos">
-			</div>
-		</section><! --/section 
- 
-	</div><! --/container 
- 
-
-	    <! -- ******************** TESTIMONIALS SECTION ********************  
-		<div class="highlight testimonials">
-			<div class="container">
-				<div class="section-title">
-					<h2>What our customers said</h2>
-					<h4>Don't take our word. See our testimonials </h4>
+	{% block body %}
+	<section>
+		<div class="w-80" style="padding: 0;">
+			<div class="section-img">
+				<div class="section-bg-box">
+					<h1 class="animated slideInLeft"><a href="https://www.cowin.gov.in/home" class="vaccine">Vaccinate
+							YourSelf</a></h1>
+					<h2 class="animated slideInRight"><a href="https://www.cowin.gov.in/home" class="vaccine">Your
+							HEALTH is Our Priority</a></h2>
 				</div>
-				
-				<section class="row breath">
-					<div class="col-md-6">
-						<div class="testblock">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </div>
-						<div class="clientblock"> 
-							<img src="images/customer-img-1.jpg" alt=".">
-							<p><strong>John Doe</strong> <br>
-								Founder of <a href="index.html#">Blacktie.co</a>
-							</p>
-						</div>
-					</div><! --/col-md-6 
-					
-					<div class="col-md-6">
-						<div class="testblock">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </div>
-						<div class="clientblock"> 
-							<img src="images/customer-img-2.jpg" alt=".">
-							<p><strong>Richard Sommer</strong> <br>
-								CEO of <a href="index.html#">Blacktie.co</a>
-							</p>
-						</div>
-					</div><! --/col-md-6 
-				</section><! --/section 
- 
-			</div><! --/container 
-		</div><! --/highlight Testimonials 
- 
-
-	    <! -- ******************** PRICING LIST ******************** 
-		<div class="container">
- 
-			<div class="section-title">
-				<h2>Honest pricing. No surprises.</h2>
-				<h4>No contract. No risk. No credit card required. </h4>
 			</div>
-			<section class="row breath planpricing">
-			
-				<div class="col-md-4">
-					<div class="pricing color1">
-						<div class="planname">Personal</div>
-						<div class="price"> <span class="curr">$</span>14<span class="per">/MO</span></div>
-						<div class="billing">Billed Annually</div>
-					</div><! --/pricing 
-				</div><! --/col-md-4
-				
-				<div class="col-md-4">
-					<div class="pricing color2">
-						<div class="planname">Agency</div>
-						<div class="price"> <span class="curr">$</span>49<span class="per">/MO</span></div>
-						<div class="billing">Billed Annually</div>
-					</div><! --/pricing 
-				</div><! --/col-md-4
-				
-				<div class="col-md-4">
-					<div class="pricing color3">
-						<div class="planname">Enterprise</div>
-						<div class="price"> <span class="curr">$</span>99<span class="per">/MO</span></div>
-						<div class="billing">Billed Annually</div>
-					</div><! --/pricing 
-				</div><! --/col-md-4
-			</section><!-- /section planpricing
- 
+			<!-- choose connect prepare section -->
 
-	    <! -- ******************** FAQ ******************** 
- 
-		<div class="section-title">
-			<h5>Frequently Asked Questions</h5>
-		</div>
-		
-		<section class="row faq breath">
-			<div class="col-md-6">
-				<h6>How does the free trial work?</h6>
-				<p>Our 10 day trial is 100% free and does not require credit card information to start. If at the end of your trial you would like to upgrade, great. If not, you can cancel your account altogether, or let us mark it as inactive for you to come back to later.</p>
-				<h6>Can I switch plans later?</h6>
-				<p>Absolutely. You can switch between our paid plans, or cancel your account altogether, whenever you like. We will adjust any payments accordingly.</p>
-			</div><! --/col-md-6
-			
-			<div class="col-md-6">
-				<h6>Do I need to choose a plan now?</h6>
-				<p>No. You get the full featured, unlimited version of our service completely free for 10 days. Once you're ready to upgrade, you may choose a plan which suits your needs.</p>
-				<h6>What payment types do you accept?</h6>
-				<p>We accept payments from MasterCard, Visa, Visa Debit and American Express. We do not accept PayPal. Remember, you do not need to supply card details to start your free trial.</p>
-			</div><! --/col-md-6 
-		</section><! --/section faq -->
-
+			<div class="section-container section-container--how-to-hg">
+				<header class="section-container__section-header">
+					<h2 class="section-header__title">Find the right
+						<span class="text-rotator"><span class="text-rotator__text">care<span
+									class="sr-only">,</span></span> <span class="text-rotator__text">doctor<span
+									class="sr-only">,</span></span> <span
+								class="text-rotator__text">hospital</span><span
+								class="text-rotator__underline"></span></span> <span class="title__line-break">right
+							at
+							your fingertips</span>
+					</h2>
+					<p class="section-header__subtitle">Healthgrades gives
+						you the tools and information you need to:</p>
+				</header>
+				<div class="section-container__section-content section-content--how-to-hg">
+					<div class="visiblity-wrapper visiblity-wrapper--rendered">
+						<ul class="how-to-hg">
+							<li class="how-to-hg__how-to-hg-card"><a class="how-to-hg-card how-to-hg-card--choose"
+									id="how-to-hg--card-choose" target="_self" href="/find-a-doctor"><span
+										class="how-to-hg-card__title">Choose</span><span
+										class="how-to-hg-card__how-to-card-img">
+										<picture>
+											<source
+												srcset="https://hg-cdn.s3.amazonaws.com/homeimages/choose-your-doctor.webp"
+												type="image/webp">
+											<source
+												srcset="https://hg-cdn.s3.amazonaws.com/homeimages/choose-your-doctor.png"
+												type="image/png"><img class="how-to-card-img"
+												alt="Choose doctors and hospitals"
+												src="https://hg-cdn.s3.amazonaws.com/homeimages/choose-your-doctor.png"
+												width="227" height="155">
+										</picture>
+									</span><span class="how-to-hg-card__text">Find doctors and hospitals based on
+										the
+										factors that matter most to you.</span></a></li>
+							<li class="how-to-hg__how-to-hg-card"><a class="how-to-hg-card how-to-hg-card--connect"
+									id="how-to-hg--card-connect" data-qa-target="how-to-hg--card-2" target="_self"
+									href="/telehealth"><span class="how-to-hg-card__title">Connect</span><span
+										class="how-to-hg-card__how-to-card-img">
+										<picture>
+											<source
+												srcset="https://hg-cdn.s3.amazonaws.com/homeimages/connect-online.webp"
+												type="image/webp">
+											<source
+												srcset="https://hg-cdn.s3.amazonaws.com/homeimages/connect-online.png"
+												type="image/png"><img class="how-to-card-img"
+												alt="Connect by phone or online"
+												src="https://hg-cdn.s3.amazonaws.com/homeimages/connect-online.png"
+												width="202" height="146">
+										</picture>
+									</span><span class="how-to-hg-card__text">Conveniently schedule your appointment
+										by
+										phone or online when available.</span></a></li>
+							<li class="how-to-hg__how-to-hg-card"><a class="how-to-hg-card how-to-hg-card--prepare"
+									id="how-to-hg--card-prepare" data-qa-target="how-to-hg--card-3" target="_self"
+									href="/right-care/health-content-a-z"><span
+										class="how-to-hg-card__title">Prepare</span><span
+										class="how-to-hg-card__how-to-card-img">
+										<picture>
+											<source
+												srcset="https://hg-cdn.s3.amazonaws.com/homeimages/prepare-for-your-appointment.webp"
+												type="image/webp">
+											<source
+												srcset="https://hg-cdn.s3.amazonaws.com/homeimages/prepare-for-your-appointment.png"
+												type="image/png"><img class="how-to-card-img"
+												alt="Prepare for your appointment"
+												src="https://hg-cdn.s3.amazonaws.com/homeimages/prepare-for-your-appointment.png"
+												width="276" height="156">
+										</picture>
+									</span><span class="how-to-hg-card__text">Learn what you need to know and which
+										questions to ask your doctor.</span></a></li>
+						</ul>
+					</div>
 				</div>
-				<! --/container -->
-
-					<! -- ******************** FOOTER ******************** -->
-						<main class="footercta" role="main">
-							<div class="container">
+			</div>
 
 
-								<div class="row">
-									<div class="col-md-12 breath text-center">
-									</div>
-								</div>
-							</div>
-							<! --/container -->
-						</main>
-						<! --/main -->
 
-							<div class="container">
-								<section class="row breath">
-									<div class="col-md-12 footerlinks">
-										<p>&copy; 2021 consultDoc.com All Rights Reserved</p>
-									</div>
-								</section>
-								<! --/section -->
-							</div>
-							<! --/container -->
+			<!-- Search by a specific need -->
+
+			<div class="content-section__section-container">
+				<div class="section-container section-container--search-by-need">
+					<header class="section-container__section-header">
+						<h2 class="section-header__title" data-qa-target="section-search-by-need-title">Search by a
+							<span class="title--inline-accent">specific need</span>
+						</h2>
+						<p class="section-header__subtitle" data-qa-target="section-search-by-need-subtitle">Find
+							more
+							than a good doctor. Find the right doctor for you.</p>
+					</header>
+					<div class="section-container__section-content section-content--search-by-need"
+						data-qa-target="section-search-by-need-content">
+						<div class="visiblity-wrapper visiblity-wrapper--rendered">
+							<div class="search-by-need">
+								<ul class="search-by-need__card-list">
+									<li class="card-list__health-content-card"><a
+											class="health-content-card health-content-card--primary-care health-content-card--title-only"
+											id="health-content--card-primary-care"
+											data-qa-target="health-content--card-1" target="_self"
+											href="/usearch?what=primary%20care&amp;sort.provider=ratings"><span
+												class="health-content-card__health-content-card-text"><span
+													class="health-content-card-text__title">Top rated Primary Care
+													physicians</span></span><span
+												class="health-content-card__health-content-card-img">
+												<picture>
+													<source
+														srcset="https://hg-cdn.s3.amazonaws.com/homeimages/PopularSection2.webp"
+														type="image/webp">
+													<source
+														srcset="https://hg-cdn.s3.amazonaws.com/homeimages/PopularSection2.jpg"
+														type="image/png"><img class="health-content-card-img"
+														id="primary-care"
+														alt="Search top rated Primary Care physicians in your area"
+														data-qa-target="health-content--card-1-img"
+														src="https://hg-cdn.s3.amazonaws.com/homeimages/PopularSection2.jpg"
+														width="380" height="290">
+												</picture>
+											</span></a></li>
+									<li class="card-list__health-content-card"><a
+											class="health-content-card health-content-card--knee-leg health-content-card--title-only"
+											id="health-content--card-knee-leg" data-qa-target="health-content--card-2"
+											target="_self"
+											href="/usearch?what=Orthopedic%20Surgery&amp;entityCode=PS630&amp;searchType=PracticingSpecialty&amp;cfid=ps630%2F30304643-3030-3030-3143-000000000000"><span
+												class="health-content-card__health-content-card-text"><span
+													class="health-content-card-text__title">Orthopedic Surgeons for
+													Knee
+													&amp; Leg Surgery</span></span><span
+												class="health-content-card__health-content-card-img">
+												<picture>
+													<source
+														srcset="https://hg-cdn.s3.amazonaws.com/homeimages/PopularSection1.webp"
+														type="image/webp">
+													<source
+														srcset="https://hg-cdn.s3.amazonaws.com/homeimages/PopularSection1.jpg"
+														type="image/png"><img class="health-content-card-img"
+														id="knee-leg"
+														alt="Find orthopedic surgeons near you for knee and leg surgery"
+														data-qa-target="health-content--card-2-img"
+														src="https://hg-cdn.s3.amazonaws.com/homeimages/PopularSection1.jpg"
+														width="380" height="290">
+												</picture>
+											</span></a></li>
+									<li class="card-list__health-content-card"><a
+											class="health-content-card health-content-card--mental-telehealth health-content-card--title-only"
+											id="health-content--card-mental-telehealth"
+											data-qa-target="health-content--card-3" target="_self"
+											href="/usearch?what=Mental%20Health&amp;entityCode=PS1020&amp;searchType=PracticingSpecialty&amp;availability=telehealth"><span
+												class="health-content-card__health-content-card-text"><span
+													class="health-content-card-text__title">Mental Health Providers
+													with
+													virtual appointments</span></span><span
+												class="health-content-card__health-content-card-img">
+												<picture>
+													<source
+														srcset="https://hg-cdn.s3.amazonaws.com/homeimages/PopularSection3.webp"
+														type="image/webp">
+													<source
+														srcset="https://hg-cdn.s3.amazonaws.com/homeimages/PopularSection3.jpg"
+														type="image/png"><img class="health-content-card-img"
+														id="mental-telehealth"
+														alt="Find health providers with virtual appoints in your area"
+														data-qa-target="health-content--card-3-img"
+														src="https://hg-cdn.s3.amazonaws.com/homeimages/PopularSection3.jpg"
+														width="380" height="290">
+												</picture>
+											</span></a></li>
+								</ul>
+							</div><svg class="svg-art svg-art--concentric-circles" aria-hidden="true"
+								viewBox="0 0 648 648">
+								<g stroke="currentColor" stroke-width="4" fill="none">
+									<circle cx="50%" cy="50%" r="0"></circle>
+									<circle cx="50%" cy="50%" r="18"></circle>
+									<circle cx="50%" cy="50%" r="36"></circle>
+									<circle cx="50%" cy="50%" r="54"></circle>
+									<circle cx="50%" cy="50%" r="72"></circle>
+									<circle cx="50%" cy="50%" r="90"></circle>
+									<circle cx="50%" cy="50%" r="108"></circle>
+									<circle cx="50%" cy="50%" r="126"></circle>
+									<circle cx="50%" cy="50%" r="144"></circle>
+									<circle cx="50%" cy="50%" r="162"></circle>
+									<circle cx="50%" cy="50%" r="180"></circle>
+									<circle cx="50%" cy="50%" r="198"></circle>
+									<circle cx="50%" cy="50%" r="216"></circle>
+									<circle cx="50%" cy="50%" r="234"></circle>
+									<circle cx="50%" cy="50%" r="252"></circle>
+									<circle cx="50%" cy="50%" r="270"></circle>
+									<circle cx="50%" cy="50%" r="288"></circle>
+									<circle cx="50%" cy="50%" r="306"></circle>
+								</g>
+							</svg>
+						</div>
+					</div>
+				</div>
+			</div>
 
 
-								<script src="{{url_for('static', filename='js/jquery.js')}}"></script>
-								<script src="{{url_for('static', filename='js/bootstrap.js')}}"></script>
-								<script src="{{url_for('static', filename='js/easing.js')}}"></script>
-								<script src="{{url_for('static', filename='js/nicescroll.js')}}"></script>
+			<br />
 
 
-								<script>
+			<h1 class="welcome-text" style="width: 25%;">about us</h1>
+			<br />
+
+			<h2>Best Medical & Health care Needs to Our Patients</h2>
+			<div class="about-box">
+				<div>
+					<p>
+						Easy–to–understand health information to help you be ready for your appointment.
+					</p>
+					<br />
+					<p>
+						Learn what you need to know about symptoms, diagnosis, and treatment options to discuss with
+						your doctor. From major surgery to routine procedures, find out what to expect and how to
+						prepare for a successful outcome.
+					</p>
+				</div>
+				<div>
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/Pao8171B354"
+						title="YouTube video player" frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+						allowfullscreen></iframe>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Section Coding-->
 
 
-									$(function () {
-										$('.scrollto, .gototop').bind('click', function (event) {
-											var $anchor = $(this);
-											$('html, body').stop().animate({
-												scrollTop: $($anchor.attr('href')).offset().top
-											}, 1500, 'easeInOutExpo');
-											event.preventDefault();
-										});
-									});
+	{% endblock body %}
+	<!-- Start Footer Coding-->
+	<footer class="page-footer font-small blue pt-1 pb-1">
+
+		<!-- Copyright -->
+		<div class="footer-copyright text-center py-3">&copy; 2021 <a href="/"> consultDoc.com</a> All
+			Rights Reserved
+		</div>
+		<!-- Copyright -->
+
+	</footer>
+
+	<!-- End footer Coding-->
 
 
-								</script>
+	<script src="{{url_for('static', filename='js/jquery.js')}}"></script>
+	<script src="{{url_for('static', filename='js/bootstrap.js')}}"></script>
+	<script src="{{url_for('static', filename='js/easing.js')}}"></script>
+	<script src="{{url_for('static', filename='js/nicescroll.js')}}"></script>
+
+
+	<script>
+
+
+		$(function () {
+			$('.scrollto, .gototop').bind('click', function (event) {
+				var $anchor = $(this);
+				$('html, body').stop().animate({
+					scrollTop: $($anchor.attr('href')).offset().top
+				}, 1500, 'easeInOutExpo');
+				event.preventDefault();
+			});
+		});
+
+
+	</script>
+	<script src="{{url_for('static', filename='js/pace.js')}}"></script>
 
 </body>
 
-</html>
+
+
+<!-- </html> -->

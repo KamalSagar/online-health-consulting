@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+
+	{% block head %}
+	<!-- <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/index.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='../static/css/index2.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='../static/css/fontawesome/css/all.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='../static/css/animate.css') }}"> -->
+	{% endblock head %}
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+	<!-- Start Nav-bar coding -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="/">consultDoc.com</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+				data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="/">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="/dregister">Doctor Sign Up</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="/register">Patient Sign Up</a>
+					</li>
+					<li class="nav-item">
+						<form action="/login">
+							<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+						</form>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- End Nav-bar coding -->
+
+	{% block body %}
+
+	{% endblock body %}
+
+
+
+	<!-- Start Footer Coding-->
+	<footer class="page-footer font-small blue pt-1 pb-1" style="background-color: black; color: white;">
+
+		<!-- Copyright -->
+		<div class="footer-copyright text-center py-3">&copy; 2021 <a href="/"> consultDoc.com</a> All
+			Rights Reserved
+		</div>
+		<!-- Copyright -->
+
+	</footer>
+
+	<!-- End footer Coding-->
+
+
+	<script src="{{url_for('static', filename='js/jquery.js')}}"></script>
+	<script src="{{url_for('static', filename='js/bootstrap.js')}}"></script>
+	<script src="{{url_for('static', filename='js/easing.js')}}"></script>
+	<script src="{{url_for('static', filename='js/nicescroll.js')}}"></script>
+
+
+	<script>
+
+
+		$(function () {
+			$('.scrollto, .gototop').bind('click', function (event) {
+				var $anchor = $(this);
+				$('html, body').stop().animate({
+					scrollTop: $($anchor.attr('href')).offset().top
+				}, 1500, 'easeInOutExpo');
+				event.preventDefault();
+			});
+		});
+
+
+	</script>
+	<script src="{{url_for('static', filename='js/pace.js')}}"></script>
+
+</body>
+
+</html>

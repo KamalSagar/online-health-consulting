@@ -1,0 +1,56 @@
+
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;	
+	background-color: #f1f1c1;		
+  }
+  th, td {
+	padding: 15px;
+	text-align: center;
+  }
+  th {
+	  color:white;
+	  background-color:royalblue;
+
+  }
+section .doctor1-text{
+	font-size: 20px;
+    text-transform: uppercase;
+    background: white;
+    width: 60%;
+    padding: 0 5px;  
+	color:royalblue;
+	text-align: center;
+	border-radius: 20px;
+	list-style: none;
+}
+section .doctor2-text{
+	font-size: 20px;
+    text-transform: uppercase;
+    background: white;
+    width: 60%;
+    padding: 0 5px;  
+	color:mediumseagreen;
+	text-align: center;
+	border-radius: 20px;
+}
+section .doctor3-text{
+	font-size: 20px;
+    text-transform: uppercase;
+    background: white;
+    width: 60%;
+    padding: 0 5px;  
+	color:tomato;
+	text-align: center;
+	border-radius: 20px;
+}
+section .doctor-text{
+	font-size: 20px;
+    text-transform: uppercase;
+    width: 60%;
+    padding: 0 5px;  
+	color:blue;
+	text-align: end;
+	border-radius: 20px;
+}
+
