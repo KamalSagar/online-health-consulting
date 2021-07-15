@@ -1,201 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>consultDoc.com</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>consultDoc.com</title>
 
- <!-- Bootstrap core CSS -->    
-    <link href="{{ url_for('static', filename='vendor1/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" >
+  <!-- Bootstrap core CSS -->
+  <link href="{{ url_for('static', filename='vendor1/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
-    <!-- Custom fonts for this template -->
-    <link href="{{ url_for('static', filename='vendor1/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" >
+  <!-- Custom fonts for this template -->
+  <link href="{{ url_for('static', filename='vendor1/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet"
+    type="text/css">
 
-    <!-- Custom styles for this template -->
-    <link href="{{ url_for('static', filename='css/sb-admin.css')}}" rel="stylesheet" >
-    
-    <!-- Plugin CSS -->
-    <link href="{{ url_for('static', filename='vendor1/datatables/dataTables.bootstrap4.css')}}" rel="stylesheet" >
+  <!-- Custom styles for this template -->
+  <link href="{{ url_for('static', filename='css/sb-admin.css')}}" rel="stylesheet">
 
-  </head>
+  <!-- Plugin CSS -->
+  <link href="{{ url_for('static', filename='vendor1/datatables/dataTables.bootstrap4.css')}}" rel="stylesheet">
 
-  <body class="fixed-nav sticky-footer bg-dark" id="page-top">
+  <!-- cards css   -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/index2.css') }}">
 
-   <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-      <a class="navbar-brand" href="/">consultDoc.com</a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-          <li class="nav-item active" data-toggle="tooltip" data-placement="right" title="Add Doctor">
-            <a class="nav-link" href="/dh">
-              <i class="fa fa-fw fa-home"></i>
-              <span class="nav-link-text">
-                Home</span>
-            </a>
-         {% with namme=session.username %}
-		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Details">
-            <a class="nav-link" href="/dd/{{namme}}">
-              <i class="fa fa-fw fa-user-md"></i>
-              <span class="nav-link-text">
-                My Details</span>
-            </a>
-          </li>
-          	
-		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Record">
-            <a class="nav-link" href="/dr/{{namme}}">
-              <i class="fa fa-fw fa-table"></i>
-              <span class="nav-link-text">
-                Patient Record</span>
-            </a>
-          </li>  
-          {% endwith%}  
-          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Add Disease">
-            <a class="nav-link" href="/df">
-              <i class="fa fa-fw fa-paper-plane"></i>
-              <span class="nav-link-text">
-                Feedback</span>
-            </a>
-          </li>
-          <li class="nav-item " data-toggle="tooltip" data-placement="right" title="Add Disease">
-            <a class="nav-link" href="/dc">
-              <i class="fa fa-fw fa-phone"></i>
-              <span class="nav-link-text">
-                Contact</span>
-            </a>
-          </li>
-        </ul>
-              
-       
-        <ul class="navbar-nav sidenav-toggler">
-         <li class="nav-item">
-           <a class="nav-link text-center" id="sidenavToggler">
-             <i class="fa fa-fw fa-angle-left"></i>
-           </a>
-         </li>
+  <!-- cards css   -->
+  <style>
+    .doc_cards{
+      border: 2px solid black;
+    }
+
+    .card_list{
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+    .card_list_item{
+      margin: 5px;
+    }
+    .card{
+      width: 375px;
+      height: 500px;
+    }
+    .img{
+      height: 500px;
+    }
+
+  </style>
+
+</head>
+
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <a class="navbar-brand" href="/">consultDoc.com</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+        <li class="nav-item active" data-toggle="tooltip" data-placement="right" title="Add Doctor">
+          <a class="nav-link" href="/dh">
+            <i class="fa fa-fw fa-home"></i>
+            <span class="nav-link-text">
+              Home</span>
+          </a>
+          {% with namme=session.username %}
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Details">
+          <a class="nav-link" href="/dd/{{namme}}">
+            <i class="fa fa-fw fa-user-md"></i>
+            <span class="nav-link-text">
+              My Details</span>
+          </a>
+        </li>
+
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Record">
+          <a class="nav-link" href="/dr/{{namme}}">
+            <i class="fa fa-fw fa-table"></i>
+            <span class="nav-link-text">
+              Patient Record</span>
+          </a>
+        </li>
+        {% endwith%}
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Add Disease">
+          <a class="nav-link" href="/df">
+            <i class="fa fa-fw fa-paper-plane"></i>
+            <span class="nav-link-text">
+              Feedback</span>
+          </a>
+        </li>
+        <li class="nav-item " data-toggle="tooltip" data-placement="right" title="Add Disease">
+          <a class="nav-link" href="/dc">
+            <i class="fa fa-fw fa-phone"></i>
+            <span class="nav-link-text">
+              Contact</span>
+          </a>
+        </li>
       </ul>
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item dropdown">
-              <span class="d-lg-none">
-                <span class="badge badge-pill badge-primary"></span>
-              </span>
-              <span class="new-indicator text-primary d-none d-lg-block">
-                <span class="number"></span>
-              </span>
+
+
+      <ul class="navbar-nav sidenav-toggler">
+        <li class="nav-item">
+          <a class="nav-link text-center" id="sidenavToggler">
+            <i class="fa fa-fw fa-angle-left"></i>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <span class="d-lg-none">
+            <span class="badge badge-pill badge-primary"></span>
+          </span>
+          <span class="new-indicator text-primary d-none d-lg-block">
+            <span class="number"></span>
+          </span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="messagesDropdown">
+            <h6 class="dropdown-header"></h6>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <strong></strong>
+              <span class="small float-right text-muted"></span>
+              <div class="dropdown-message small"></div>
             </a>
-            <div class="dropdown-menu" aria-labelledby="messagesDropdown">
-              <h6 class="dropdown-header"></h6>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">
-                <strong></strong>
-                <span class="small float-right text-muted"></span>
-                <div class="dropdown-message small"></div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">
-                <strong>Jane Smith</strong>
-                <span class="small float-right text-muted"></span>
-                <div class="dropdown-message small"></div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">
-                <strong>John Doe</strong>
-                <span class="small float-right text-muted"></span>
-                <div class="dropdown-message small"></div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item small" href="#">
-               
-              </a>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-              <span class="d-lg-none">
-                <span class="badge badge-pill badge-warning"></span>
-              </span>
-              <span class="new-indicator text-warning d-none d-lg-block">
-                <span class="number"></span>
-              </span>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <strong>user1</strong>
+              <span class="small float-right text-muted"></span>
+              <div class="dropdown-message small"></div>
             </a>
-            <div class="dropdown-menu" aria-labelledby="alertsDropdown">
-              <h6 class="dropdown-header">New Alerts:</h6>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">
-                <span class="text-success">
-                  <strong>
-                    <i class="fa fa-long-arrow-up"></i>
-                    Status Update</strong>
-                </span>
-                <span class="small float-right text-muted">11:21 AM</span>
-                <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">
-                <span class="text-danger">
-                  <strong>
-                    <i class="fa fa-long-arrow-down"></i>
-                    Status Update</strong>
-                </span>
-                <span class="small float-right text-muted">11:21 AM</span>
-                <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">
-                <span class="text-success">
-                  <strong>
-                    <i class="fa fa-long-arrow-up"></i>
-                    Status Update</strong>
-                </span>
-                <span class="small float-right text-muted">11:21 AM</span>
-                <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item small" href="#">
-                View all alerts
-              </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <strong>user2</strong>
+              <span class="small float-right text-muted"></span>
+              <div class="dropdown-message small"></div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item small" href="#">
+
+            </a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <span class="d-lg-none">
+            <span class="badge badge-pill badge-warning"></span>
+          </span>
+          <span class="new-indicator text-warning d-none d-lg-block">
+            <span class="number"></span>
+          </span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="alertsDropdown">
+            <h6 class="dropdown-header">New Alerts:</h6>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <span class="text-success">
+                <strong>
+                  <i class="fa fa-long-arrow-up"></i>
+                  Status Update</strong>
+              </span>
+              <span class="small float-right text-muted">11:21 AM</span>
+              <div class="dropdown-message small">This is an automated server response message. All systems are online.
+              </div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <span class="text-danger">
+                <strong>
+                  <i class="fa fa-long-arrow-down"></i>
+                  Status Update</strong>
+              </span>
+              <span class="small float-right text-muted">11:21 AM</span>
+              <div class="dropdown-message small">This is an automated server response message. All systems are online.
+              </div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <span class="text-success">
+                <strong>
+                  <i class="fa fa-long-arrow-up"></i>
+                  Status Update</strong>
+              </span>
+              <span class="small float-right text-muted">11:21 AM</span>
+              <div class="dropdown-message small">This is an automated server response message. All systems are online.
+              </div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item small" href="#">
+              View all alerts
+            </a>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+            <i class="fa fa-fw fa-sign-out"></i>
+            Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="content-wrapper">
+
+    <div class="container-fluid">
+
+      <!-- Breadcrumbs -->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="/home">Home</a>
+        </li>
+      </ol>
+
+      <!-- cards code start  -->
+      <div class="doc-cards" >
+        <ul class="card_list">
+          
+          <li class="card_list_item">
+            <div class="card">
+              <img class="card-img-top" style="height: 500px;" src="/static/images/doc1.jpg" alt="Card image cap">
             </div>
           </li>
           
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
-              <i class="fa fa-fw fa-sign-out"></i>
-              Logout</a>
+          <li class="card_list_item">
+            <div class="card">
+              <img class="card-img-top" src="/static/images/doc2.jpg" alt="Card image cap">
+            </div>
           </li>
+          
+          <li class="card_list_item">
+            <div class="card">
+              <img class="card-img-top" src="/static/images/doc3.jpg" alt="Card image cap">
+            </div>
+          </li> 
+          
         </ul>
       </div>
-    </nav>
-
-    <div class="content-wrapper">
-
-      <div class="container-fluid">
-
-        <!-- Breadcrumbs -->
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item">
-            <a href="#">Home</a>
-          </li>
-        </ol>
-        
-       <div class="card mb-3">
-		<div class="card-body">
-          
- </div>
-</div>
-
-
+      <!-- cards code end  -->
+      
+      <!-- /.content-wrapper -->
     </div>
-    <!-- /.content-wrapper -->
-
-    <footer class="sticky-footer">
-      <div class="container">
+  </div>
+  <footer class="sticky-footer">
+    <div class="container">
         <div class="text-center">
           <small></small>
         </div>
@@ -208,7 +260,8 @@
     </a>
 
     <!-- Logout Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -228,19 +281,19 @@
       </div>
     </div>
 
- <!-- Bootstrap core JavaScript -->
-	<script src="{{url_for('static', filename='vendor1/jquery/jquery.min.js')}}"></script>
-	<script src="{{url_for('static', filename='vendor1/popper/popper.min.js')}}"></script>
-	<script src="{{url_for('static', filename='vendor1/bootstrap/js/bootstrap.min.js')}}"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="{{url_for('static', filename='vendor1/jquery/jquery.min.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor1/popper/popper.min.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor1/bootstrap/js/bootstrap.min.js')}}"></script>
 
     <!-- Plugin JavaScript -->
-	<script src="{{url_for('static', filename='vendor1/jquery-easing/jquery.easing.min.js')}}"></script>
-	<script src="{{url_for('static', filename='vendor1/chart.js/Chart.min.js')}}"></script>
-	<script src="{{url_for('static', filename='vendor1/datatables/jquery.dataTables.js')}}"></script>
-	<script src="{{url_for('static', filename='vendor1/datatables/dataTables.bootstrap4.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor1/jquery-easing/jquery.easing.min.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor1/chart.js/Chart.min.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor1/datatables/jquery.dataTables.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor1/datatables/dataTables.bootstrap4.js')}}"></script>
 
     <!-- Custom scripts for this template -->
-	<script src="{{url_for('static', filename='js/sb-admin.min.js')}}"></script>
-  </body>
+    <script src="{{url_for('static', filename='js/sb-admin.min.js')}}"></script>
+</body>
 
 </html>

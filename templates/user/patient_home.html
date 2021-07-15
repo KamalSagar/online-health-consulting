@@ -1,269 +1,333 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>consultDoc.com</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>consultDoc.com</title>
 
- <!-- Bootstrap core CSS -->    
-    <link href="{{ url_for('static', filename='vendor1/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" >
+  <!-- Bootstrap core CSS -->
+  <link href="{{ url_for('static', filename='vendor1/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
-    <!-- Custom fonts for this template -->
-    <link href="{{ url_for('static', filename='vendor1/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" >
+  <!-- Custom fonts for this template -->
+  <link href="{{ url_for('static', filename='vendor1/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet"
+    type="text/css">
 
-    <!-- Custom styles for this template -->
-    <link href="{{ url_for('static', filename='css/sb-admin.css')}}" rel="stylesheet" >
-    
-    <!-- Plugin CSS -->
-    <link href="{{ url_for('static', filename='vendor1/datatables/dataTables.bootstrap4.css')}}" rel="stylesheet" >
+  <!-- Custom styles for this template -->
+  <link href="{{ url_for('static', filename='css/sb-admin.css')}}" rel="stylesheet">
 
-  </head>
+  <!-- Plugin CSS -->
+  <link href="{{ url_for('static', filename='vendor1/datatables/dataTables.bootstrap4.css')}}" rel="stylesheet">
 
-  <body class="fixed-nav sticky-footer bg-dark" id="page-top">
+  <!-- cards css   -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/index2.css') }}">
 
-   <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-      <a class="navbar-brand" href="/">consultDoc.com</a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-          <li class="nav-item active" data-toggle="tooltip" data-placement="right" title="Home">
-            <a class="nav-link" href="/home">
-              <i class="fa fa-fw fa-home"></i>
-              <span class="nav-link-text">
-                Home</span>
-            </a>
-            </li>
-            {% with namme=session.username %}
-          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Details">
-            <a class="nav-link" href="/details/{{namme}}">
-              <i class="fa fa-fw fa-user"></i>
-              <span class="nav-link-text">
-                My Details</span>
-            </a>
-          </li>
-                  
+</head>
 
-          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Search">
-            <a class="nav-link" href="/search">
-              <i class="fa fa-fw fa-search"></i>
-              <span class="nav-link-text">
-                Search Doctor</span>
-            </a>
-          </li>
-		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Prediction">
-            <a class="nav-link" href="/prediction">
-              <i class="fa fa-fw fa-plus-square"></i>
-              <span class="nav-link-text">
-                Disease Predection</span>
-            </a>
-          </li>
-          <li class="nav-item " data-toggle="tooltip" data-placement="right" title="Feedback">
-            <a class="nav-link" href="/feedback">
-              <i class="fa fa-fw fa-paper-plane"></i>
-              <span class="nav-link-text">
-                Feedback</span>
-            </a>
-          </li>
-          <li class="nav-item " data-toggle="tooltip" data-placement="right" title="Contact">
-            <a class="nav-link" href="/contact">
-              <i class="fa fa-fw fa-phone"></i>
-              <span class="nav-link-text">
-                Contact</span>
-            </a>
-          </li>
-           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Appoinment">
-            <a class="nav-link" href="/f_app/{{namme}}">
-              <i class="fa fa-fw fa-user-md"></i>
-              <span class="nav-link-text">
-                View Appoinment</span>
-            </a>
-          </li>
-          <li class="nav-item " data-toggle="tooltip" data-placement="right" title="Record">
-            <a class="nav-link" href="http://127.0.0.1:8000/">
-              <i class="fa fa-fw fa-paper-plane"></i>
-              <span class="nav-link-text">
-                View Records</span>
-            </a>
-          </li>
-          {% endwith%}
-        </ul>
-              
-       
-        <ul class="navbar-nav sidenav-toggler">
-         <li class="nav-item">
-           <a class="nav-link text-center" id="sidenavToggler">
-             <i class="fa fa-fw fa-caret-left"></i>
-           </a>
-         </li>
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <a class="navbar-brand" href="/">consultDoc.com</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+        <li class="nav-item active" data-toggle="tooltip" data-placement="right" title="Home">
+          <a class="nav-link" href="/home">
+            <i class="fa fa-fw fa-home"></i>
+            <span class="nav-link-text">
+              Home</span>
+          </a>
+        </li>
+        {% with namme=session.username %}
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Details">
+          <a class="nav-link" href="/details/{{namme}}">
+            <i class="fa fa-fw fa-user"></i>
+            <span class="nav-link-text">
+              My Details</span>
+          </a>
+        </li>
+
+
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Search">
+          <a class="nav-link" href="/search">
+            <i class="fa fa-fw fa-search"></i>
+            <span class="nav-link-text">
+              Search Doctor</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Prediction">
+          <a class="nav-link" href="/prediction">
+            <i class="fa fa-fw fa-plus-square"></i>
+            <span class="nav-link-text">
+              Disease Predection</span>
+          </a>
+        </li>
+        <li class="nav-item " data-toggle="tooltip" data-placement="right" title="Feedback">
+          <a class="nav-link" href="/feedback">
+            <i class="fa fa-fw fa-paper-plane"></i>
+            <span class="nav-link-text">
+              Feedback</span>
+          </a>
+        </li>
+        <li class="nav-item " data-toggle="tooltip" data-placement="right" title="Contact">
+          <a class="nav-link" href="/contact">
+            <i class="fa fa-fw fa-phone"></i>
+            <span class="nav-link-text">
+              Contact</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Appoinment">
+          <a class="nav-link" href="/f_app/{{namme}}">
+            <i class="fa fa-fw fa-user-md"></i>
+            <span class="nav-link-text">
+              View Appoinment</span>
+          </a>
+        </li>
+        <!-- <li class="nav-item " data-toggle="tooltip" data-placement="right" title="Record">
+          <a class="nav-link" href="http://127.0.0.1:8000/">
+            <i class="fa fa-fw fa-paper-plane"></i>
+            <span class="nav-link-text">
+              View Records</span>
+          </a>
+        </li> -->
+        {% endwith%}
       </ul>
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item dropdown">
-              <span class="d-lg-none">
-                <span class="badge badge-pill badge-primary"></span>
-              </span>
-              <span class="new-indicator text-primary d-none d-lg-block">
-                <span class="number"></span>
-              </span>
+
+
+      <ul class="navbar-nav sidenav-toggler">
+        <li class="nav-item">
+          <a class="nav-link text-center" id="sidenavToggler">
+            <i class="fa fa-fw fa-caret-left"></i>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <span class="d-lg-none">
+            <span class="badge badge-pill badge-primary"></span>
+          </span>
+          <span class="new-indicator text-primary d-none d-lg-block">
+            <span class="number"></span>
+          </span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="messagesDropdown">
+            <h6 class="dropdown-header"></h6>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <strong></strong>
+              <span class="small float-right text-muted"></span>
+              <div class="dropdown-message small"></div>
             </a>
-            <div class="dropdown-menu" aria-labelledby="messagesDropdown">
-              <h6 class="dropdown-header"></h6>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">
-                <strong></strong>
-                <span class="small float-right text-muted"></span>
-                <div class="dropdown-message small"></div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">
-                <strong>Jane Smith</strong>
-                <span class="small float-right text-muted"></span>
-                <div class="dropdown-message small"></div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">
-                <strong>John Doe</strong>
-                <span class="small float-right text-muted"></span>
-                <div class="dropdown-message small"></div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item small" href="#">
-               
-              </a>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-              <span class="d-lg-none">
-                <span class="badge badge-pill badge-warning"></span>
-              </span>
-              <span class="new-indicator text-warning d-none d-lg-block">
-                <span class="number"></span>
-              </span>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <strong>user1</strong>
+              <span class="small float-right text-muted"></span>
+              <div class="dropdown-message small"></div>
             </a>
-            <div class="dropdown-menu" aria-labelledby="alertsDropdown">
-              <h6 class="dropdown-header">New Alerts:</h6>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">
-                <span class="text-success">
-                  <strong>
-                    <i class="fa fa-long-arrow-up"></i>
-                    Status Update</strong>
-                </span>
-                <span class="small float-right text-muted">11:21 AM</span>
-                <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">
-                <span class="text-danger">
-                  <strong>
-                    <i class="fa fa-long-arrow-down"></i>
-                    Status Update</strong>
-                </span>
-                <span class="small float-right text-muted">11:21 AM</span>
-                <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">
-                <span class="text-success">
-                  <strong>
-                    <i class="fa fa-long-arrow-up"></i>
-                    Status Update</strong>
-                </span>
-                <span class="small float-right text-muted">11:21 AM</span>
-                <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item small" href="#">
-                View all alerts
-              </a>
-            </div>
-          </li>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <strong>user1</strong>
+              <span class="small float-right text-muted"></span>
+              <div class="dropdown-message small"></div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item small" href="#">
 
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
-              <i class="fa fa-fw fa-sign-out"></i>
-				Logout</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+            </a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <span class="d-lg-none">
+            <span class="badge badge-pill badge-warning"></span>
+          </span>
+          <span class="new-indicator text-warning d-none d-lg-block">
+            <span class="number"></span>
+          </span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="alertsDropdown">
+            <h6 class="dropdown-header">New Alerts:</h6>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <span class="text-success">
+                <strong>
+                  <i class="fa fa-long-arrow-up"></i>
+                  Status Update</strong>
+              </span>
+              <span class="small float-right text-muted">11:21 AM</span>
+              <div class="dropdown-message small">This is an automated server response message. All systems are online.
+              </div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <span class="text-danger">
+                <strong>
+                  <i class="fa fa-long-arrow-down"></i>
+                  Status Update</strong>
+              </span>
+              <span class="small float-right text-muted">11:21 AM</span>
+              <div class="dropdown-message small">This is an automated server response message. All systems are online.
+              </div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <span class="text-success">
+                <strong>
+                  <i class="fa fa-long-arrow-up"></i>
+                  Status Update</strong>
+              </span>
+              <span class="small float-right text-muted">11:21 AM</span>
+              <div class="dropdown-message small">This is an automated server response message. All systems are online.
+              </div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item small" href="#">
+              View all alerts
+            </a>
+          </div>
+        </li>
 
-    <div class="content-wrapper">
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+            <i class="fa fa-fw fa-sign-out"></i>
+            Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-      <div class="container-fluid">
+  <div class="content-wrapper">
 
-        <!-- Breadcrumbs -->
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item">
-            <a href="#">Home</a>
-          </li>
-        </ol>
-       <div class="card mb-3">
-		<div class="card-body">
+    <div class="container-fluid">
+
+      <!-- Breadcrumbs -->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="/home">Home</a>
+        </li>
+      </ol>
+      <div class="card mb-3">
+        <!-- <div class="card-body">
           <div class="table-responsive">
-			  
-		        <a class="btn btn-info btn-fill pull-left" href="http://127.0.0.1:8000/uploads/form/">Upload Records</a><br><br> 
-   </div>
-  </div>
- </div>
-</div>
-    <!-- /.content-wrapper -->
 
-    <footer class="sticky-footer">
-      <div class="container">
-        <div class="text-center">
-          <small></small>
+            <a class="btn btn-info btn-fill pull-left" href="http://127.0.0.1:8000/uploads/form/">Upload
+              Records</a><br><br>
+          </div>
+        </div> -->
+      </div>
+      <!-- cards code start  -->
+      <div class="section-container__section-content section-content--how-to-hg cards_container">
+        <div class="visiblity-wrapper visiblity-wrapper--rendered">
+          <ul class="how-to-hg">
+            <li class="how-to-hg__how-to-hg-card"><a class="how-to-hg-card how-to-hg-card--choose"
+                id="how-to-hg--card-choose" target="_self" href="/search"><span
+                  class="how-to-hg-card__title">Choose</span><span class="how-to-hg-card__how-to-card-img">
+                  <picture>
+                    <source srcset="https://hg-cdn.s3.amazonaws.com/homeimages/choose-your-doctor.webp"
+                      type="image/webp">
+                    <source srcset="https://hg-cdn.s3.amazonaws.com/homeimages/choose-your-doctor.png" type="image/png">
+                    <img class="how-to-card-img" alt="Choose doctors and hospitals"
+                      src="https://hg-cdn.s3.amazonaws.com/homeimages/choose-your-doctor.png" width="227" height="155">
+                  </picture>
+                </span><span class="how-to-hg-card__text">Find doctors and hospitals based on
+                  the
+                  factors that matter most to you.</span></a></li>
+            <li class="how-to-hg__how-to-hg-card"><a class="how-to-hg-card how-to-hg-card--connect"
+                id="how-to-hg--card-connect" data-qa-target="how-to-hg--card-2" target="_self" href="/contact"><span
+                  class="how-to-hg-card__title">Connect</span><span class="how-to-hg-card__how-to-card-img">
+                  <picture>
+                    <source srcset="https://hg-cdn.s3.amazonaws.com/homeimages/connect-online.webp" type="image/webp">
+                    <source srcset="https://hg-cdn.s3.amazonaws.com/homeimages/connect-online.png" type="image/png"><img
+                      class="how-to-card-img" alt="Connect by phone or online"
+                      src="https://hg-cdn.s3.amazonaws.com/homeimages/connect-online.png" width="202" height="146">
+                  </picture>
+                </span><span class="how-to-hg-card__text">Conveniently schedule your appointment
+                  by
+                  phone or online when available.</span></a></li>
+            <li class="how-to-hg__how-to-hg-card"><a class="how-to-hg-card how-to-hg-card--prepare"
+                id="how-to-hg--card-prepare" data-qa-target="how-to-hg--card-3" target="_self"
+                href="/contact"><span
+                  class="how-to-hg-card__title">Prepare</span><span
+                  class="how-to-hg-card__how-to-card-img">
+                  <picture>
+                    <source
+                      srcset="https://hg-cdn.s3.amazonaws.com/homeimages/prepare-for-your-appointment.webp"
+                      type="image/webp">
+                    <source
+                      srcset="https://hg-cdn.s3.amazonaws.com/homeimages/prepare-for-your-appointment.png"
+                      type="image/png"><img class="how-to-card-img"
+                      alt="Prepare for your appointment"
+                      src="https://hg-cdn.s3.amazonaws.com/homeimages/prepare-for-your-appointment.png"
+                      width="276" height="156">
+                  </picture>
+                </span><span class="how-to-hg-card__text">Learn what you need to know and which
+                  questions to ask your doctor.</span></a></li>
+          </ul>
         </div>
       </div>
-    </footer>
+      <!-- cards code ends  -->
+    </div>
 
-    <!-- Scroll to Top Button -->
-    <a class="scroll-to-top rounded" href="#page-top">
-      <i class="fa fa-angle-up"></i>
-    </a>
+  </div>
+  <!-- /.content-wrapper -->
 
-    <!-- Logout Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            Select "Logout" below if you are ready to end your current session.
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="/login">Logout</a>
-          </div>
+  <footer class="sticky-footer">
+    <div class="container">
+      <div class="text-center">
+        <small></small>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top Button -->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fa fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Select "Logout" below if you are ready to end your current session.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="/login">Logout</a>
         </div>
       </div>
     </div>
+  </div>
 
- <!-- Bootstrap core JavaScript -->
-	<script src="{{url_for('static', filename='vendor1/jquery/jquery.min.js')}}"></script>
-	<script src="{{url_for('static', filename='vendor1/popper/popper.min.js')}}"></script>
-	<script src="{{url_for('static', filename='vendor1/bootstrap/js/bootstrap.min.js')}}"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script src="{{url_for('static', filename='vendor1/jquery/jquery.min.js')}}"></script>
+  <script src="{{url_for('static', filename='vendor1/popper/popper.min.js')}}"></script>
+  <script src="{{url_for('static', filename='vendor1/bootstrap/js/bootstrap.min.js')}}"></script>
 
-    <!-- Plugin JavaScript -->
-	<script src="{{url_for('static', filename='vendor1/jquery-easing/jquery.easing.min.js')}}"></script>
-	<script src="{{url_for('static', filename='vendor1/chart.js/Chart.min.js')}}"></script>
-	<script src="{{url_for('static', filename='vendor1/datatables/jquery.dataTables.js')}}"></script>
-	<script src="{{url_for('static', filename='vendor1/datatables/dataTables.bootstrap4.js')}}"></script>
+  <!-- Plugin JavaScript -->
+  <script src="{{url_for('static', filename='vendor1/jquery-easing/jquery.easing.min.js')}}"></script>
+  <script src="{{url_for('static', filename='vendor1/chart.js/Chart.min.js')}}"></script>
+  <script src="{{url_for('static', filename='vendor1/datatables/jquery.dataTables.js')}}"></script>
+  <script src="{{url_for('static', filename='vendor1/datatables/dataTables.bootstrap4.js')}}"></script>
 
-    <!-- Custom scripts for this template -->
-	<script src="{{url_for('static', filename='js/sb-admin.min.js')}}"></script>
-  </body>
+  <!-- Custom scripts for this template -->
+  <script src="{{url_for('static', filename='js/sb-admin.min.js')}}"></script>
+</body>
 
 </html>
